@@ -1,1 +1,47 @@
-<p>login works!</p>
+<nav>
+    <h3>Gestão de Acessos</h3>
+    <ul>
+        <li (click)="logar()">Login</li>
+        <li onclick="alert('abrir tela de cadastro')">Cadastre-se</li>
+    </ul>
+</nav>
+
+<div *ngIf="modal===true">
+
+
+    <div class="overlay"></div>
+    <div class="modal">
+        
+        <div class="container">
+            <div class="box" style="justify-content: end;">
+                <a (click)="fecharModal()" style="cursor: pointer;">Fechar</a>
+            </div>
+            <div class="box" style="justify-content: center;">
+                <h2>Login</h2>
+            </div>
+            <div class="box">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus commodo aliquet est, vitae interdum
+                orci vestibulum nec.
+                Morbi vel diam purus. Morbi pretium nisi sit amet nunc blandit, vitae tincidunt ex finibus.
+                Vestibulum at eros auctor, lobortis mi ut, porta diam. Nunc dui purus, blandit vitae efficitur ut,
+                ornare id diam.
+                Proin malesuada sem ut eros mollis aliquet nec quis ante. Cras sit amet mollis dolor, in luctus diam.
+                Nullam mollis scelerisque risus, at scelerisque lectus auctor vel. Duis sollicitudin sem sit amet
+                feugiat faucibus.
+                Ut ullamcorper commodo eros, a tristique sem congue nec. Vestibulum venenatis elit id convallis euismod.
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+
+
+<app-footer>
+</app-footer>

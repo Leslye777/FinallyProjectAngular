@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  name: any;
+  logado: any;
 
   ngOnInit(): void {
+    this.name = 'otavio';
+    this.logado = true;
   }
 
+  exit(): void{
+    this.router.navigate(['/login']);
+  }
+
+
+  navigateByUrl():void{
+    console.log("trocou de rota");
+  }
 }

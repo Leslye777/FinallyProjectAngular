@@ -1,12 +1,13 @@
+<nav>
+    <h3>Gestão de Acessos</h3>
+    <h3>Bem vindo {{name}}!</h3>
+    <ul>
+        <li (click)="navigateByUrl()">Home</li>
+        <li onclick="alert('abrir perfil')">Meu perfil</li>
+        <li  routerLink="/create-student">Adicionar Estudante</li>
+        <li *ngIf="logado" (click)="exit()">Sair</li>
+    </ul>
+</nav>
 
-<div id="container">
-    
-    <div class="menu">
-        
-        <mat-toolbar color="primary">
-        <span>Gestão de Alunos</span>
-        </mat-toolbar>
-    </div>
-</div>
 
 <!-- accent' | 'warn'  -->
