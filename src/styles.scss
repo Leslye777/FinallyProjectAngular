@@ -3,5 +3,137 @@
     box-sizing: border-box;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.container {
+
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+}
+
+.content-card {
+
+    flex-flow:wrap;
+    display: inline-flex;
+    width: 80%;
+    padding: 10px;
+    margin: 10px;
+    border: 2px double lightgray;
+    border-radius: 20px;
+    justify-content: center;
+
+}
+
+.content {
+    flex-direction: column;
+    display: inline-flex;
+    width: 80%;
+    padding: 10px;
+    margin: 10px;
+    border: 2px double lightgray;
+    border-radius: 20px;
+}
+
+.box {
+    padding: 2px;
+    margin-top: 2px;
+    display: inline-flex;
+    align-items: baseline;
+}
+
+.form-submit-button {
+
+    background: #B9DFFF;
+
+    color: #fff;
+    height: 40px;
+    width: 95px;
+
+    border: 1px solid #eee;
+    border-radius: 10px;
+
+    box-shadow: 5px 5px 5px #eee;
+
+    text-shadow: none;
+
+}
+
+.form-submit-button:hover {
+
+    background: #016ABC;
+
+    color: #fff;
+
+    height: 40px;
+    width: 95px;
+
+    border: 1px solid #eee;
+    border-radius: 10px;
+
+    box-shadow: 5px 5px 5px #eee;
+
+    text-shadow: none;
+
+}
+
+
+
+.form-cancel-button {
+
+    background: #e99c9c;
+
+    color: #fff;
+    height: 40px;
+    width: 95px;
+
+    border: 1px solid #eee;
+    border-radius: 10px;
+
+    box-shadow: 5px 5px 5px #eee;
+
+    text-shadow: none;
+
+}
+
+.form-cancel-button:hover {
+
+    background: #ff0000;
+
+    color: #fff;
+
+    height: 40px;
+    width: 90px;
+
+    border: 1px solid #eee;
+    border-radius: 10px;
+
+    box-shadow: 5px 5px 5px #eee;
+
+    text-shadow: none;
+
+}
+
+.campo {
+    border: 1px double black;
+    border-radius: 5px;
+    width: 200px;
+    height: 30px;
+}
+
+.lab {
+    margin-right: 5px;
+
+}

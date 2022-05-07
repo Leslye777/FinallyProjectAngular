@@ -5,6 +5,8 @@ import { StudentListComponent } from './components/student-list/student-list.com
 import { StudentComponent } from './components/student/student.component';
 import { StudentPageComponent } from './pages/student-page/student-page.component';
 import { StudentDetailsComponent } from './pages/student-details/student-details.component';
+import { FormsModule }   from '@angular/forms';
+
 
 
 
@@ -16,6 +18,7 @@ import { StudentDetailsComponent } from './pages/student-details/student-details
     StudentDetailsComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
     SharedModule
   ]

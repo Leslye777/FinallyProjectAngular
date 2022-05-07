@@ -1,11 +1,112 @@
-<p>student-list works!</p>
-<p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus commodo aliquet est, vitae interdum orci vestibulum nec. Morbi vel diam purus. Morbi pretium nisi sit amet nunc blandit, vitae tincidunt ex finibus. Vestibulum at eros auctor, lobortis mi ut, porta diam. Nunc dui purus, blandit vitae efficitur ut, ornare id diam. Proin malesuada sem ut eros mollis aliquet nec quis ante. Cras sit amet mollis dolor, in luctus diam. Nullam mollis scelerisque risus, at scelerisque lectus auctor vel. Duis sollicitudin sem sit amet feugiat faucibus. Ut ullamcorper commodo eros, a tristique sem congue nec. Vestibulum venenatis elit id convallis euismod.
-    
-    Etiam purus purus, accumsan et commodo vitae, sollicitudin vel odio. Donec massa metus, rutrum ac dolor sed, placerat dignissim quam. Vestibulum pellentesque felis eu libero ornare vestibulum. Fusce ullamcorper nunc eget lacinia condimentum. Nam fermentum dolor ut vehicula elementum. Sed finibus ornare mauris sed euismod. Aliquam viverra mi vitae massa viverra, mollis interdum velit volutpat. Mauris dictum ante pellentesque mi hendrerit accumsan. Nunc id felis et arcu auctor varius vel sed mauris. Etiam vitae posuere nibh. Donec et odio ultricies, consequat lectus id, lobortis erat. Etiam elit orci, porttitor at aliquet non, congue quis nibh. Suspendisse imperdiet condimentum pellentesque.
-</p>
-<p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus commodo aliquet est, vitae interdum orci vestibulum nec. Morbi vel diam purus. Morbi pretium nisi sit amet nunc blandit, vitae tincidunt ex finibus. Vestibulum at eros auctor, lobortis mi ut, porta diam. Nunc dui purus, blandit vitae efficitur ut, ornare id diam. Proin malesuada sem ut eros mollis aliquet nec quis ante. Cras sit amet mollis dolor, in luctus diam. Nullam mollis scelerisque risus, at scelerisque lectus auctor vel. Duis sollicitudin sem sit amet feugiat faucibus. Ut ullamcorper commodo eros, a tristique sem congue nec. Vestibulum venenatis elit id convallis euismod.
-    
-    Etiam purus purus, accumsan et commodo vitae, sollicitudin vel odio. Donec massa metus, rutrum ac dolor sed, placerat dignissim quam. Vestibulum pellentesque felis eu libero ornare vestibulum. Fusce ullamcorper nunc eget lacinia condimentum. Nam fermentum dolor ut vehicula elementum. Sed finibus ornare mauris sed euismod. Aliquam viverra mi vitae massa viverra, mollis interdum velit volutpat. Mauris dictum ante pellentesque mi hendrerit accumsan. Nunc id felis et arcu auctor varius vel sed mauris. Etiam vitae posuere nibh. Donec et odio ultricies, consequat lectus id, lobortis erat. Etiam elit orci, porttitor at aliquet non, congue quis nibh. Suspendisse imperdiet condimentum pellentesque.
-</p>
+<div class="container">
+    <div style="width: 100%; text-align: center;">
+        <div class="content">
+            <div style="width: 100%;">
+                <h2>Buscar alunos</h2>
+            </div>
+            <div class="box" style="margin-bottom: 10px; justify-content: center;">
+                <div style="margin-left: 10px;">
+                    <label class="lab">Nome: </label>
+                    <input class="campo" [(ngModel)]="nomeBusca" (keyup)="buscaPorNome(nomeBusca)" placeholder="digite o nome">
+
+                </div>
+                <!-- <div style="margin-left: 10px;">
+                    <label class="lab" >Matrícula: </label>
+                    <input class="campo" [(ngModel)]="matriculaBusca"  placeholder="digite a matrícula">
+                </div> -->
+
+                <div style="margin-left: 10px;">
+                    <button class="form-submit-button">Limpar</button>
+                </div>
+
+
+
+            </div>
+            <div class="box" style="justify-content: flex-end;">
+               
+            </div>
+
+        </div>
+    </div>
+    <div style="width: 100%; text-align: center;">
+        <div class="content-card" style="text-align: center;">
+
+            <div *ngFor="let data of dataTable" class="card">
+
+                <div class="card-header">
+
+                    <img src="{{data.photo}}" 
+                    alt="Foto do usuário" style="width: 100px;">
+
+                </div>
+
+                <div class="card-body">
+
+                    <ul>
+
+                        <li><b>Nome:</b> {{data.name}}</li>
+                    
+
+                        <li><b>Valor:</b> {{data.monthlyPayment | currency: 'BRL'}}</li>
+
+                        <li><b>Ativo:</b> 
+                            <span *ngIf="data.validRegistration===true" style="color: green;">Sim</span>
+                            <span *ngIf="data.validRegistration===false" style="color: red;">Não</span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="card-footer">
+
+                    <button class="form-submit-button" (click)="modal.toggle(); abrirModal(data)">Detalhes</button>
+                    <button (click)="removeStudent(data.id)"  class="form-cancel-button">Remover</button>
+
+
+                </div>
+
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+
+<app-modal #modal>
+    <div class="container">
+        <div class="box" style="justify-content: center; width: 600px;">
+            <h2>{{currentProfile?.name}}</h2>
+        </div>
+        <div class="box" style=" margin-bottom: 10px; justify-content: center;">
+            <div style="display: inline-grid; margin-bottom: 15px; ">
+                
+                <img src="{{currentProfile?.photo}}" 
+                alt="Foto do usuário" style="width: 200px;">
+                <div>
+                    <label>Email: </label>
+                    <span><b>{{currentProfile?.email}}</b></span>
+                </div>
+                <div>
+                    <label>Data de matrícula: </label>
+                    <span><b>{{currentProfile?.inclusionDate}}</b></span>
+                </div>
+               
+                <div>
+                    <label>Ultimo pagamento: </label>
+                    <span><b>{{currentProfile?.lastMontlyPayment}}</b></span>
+                </div>
+                <div>
+                    <label>Valor mensal: </label>
+                    <span><b> <span><b>{{currentProfile?.monthlyPayment | currency: 'BRL' }} </b></span></b></span>
+                </div>
+                <div>
+                    <label>Aluno ativo: </label>
+                    <span><b>{{currentProfile?.validRegistration}}</b></span>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+</app-modal>

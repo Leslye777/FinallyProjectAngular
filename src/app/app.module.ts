@@ -6,6 +6,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { LoginModule } from './features/login/login.module';
 import { StudentsModule } from './features/students/students.module';
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+import { FormsModule } from '@angular/forms';
+
+registerLocaleData(localePt);
 
 
 @NgModule({
@@ -18,9 +24,15 @@ import { StudentsModule } from './features/students/students.module';
     BrowserAnimationsModule,
     LoginModule,
     StudentsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID, 
+      useValue: "pt-BR"
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

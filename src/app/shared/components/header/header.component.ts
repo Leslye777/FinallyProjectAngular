@@ -10,12 +10,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  name: any;
-  logado: any;
-
   ngOnInit(): void {
-    this.name = 'otavio';
-    this.logado = true;
   }
 
   exit(): void{

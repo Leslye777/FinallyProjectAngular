@@ -8,7 +8,9 @@ export class StudentPageComponent implements OnInit {
 
   constructor() { }
 
+  user:any;
   ngOnInit(): void {
+    this.user =  JSON.parse(sessionStorage.getItem('student')!);
   }
 
 }
