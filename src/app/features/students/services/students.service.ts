@@ -93,11 +93,7 @@ export class StudentsService {
     return [student];
   }
 
-  removeStudent(id: number) {
-    const studentIndex = this.students.findIndex((student) => student.id === Number(id));
-    this.students.splice(studentIndex, 1);
-  }
-
+  
   // createStudent(student: Student) {
   //   this.students.push(student);
   //   return this.students;
